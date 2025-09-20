@@ -1,7 +1,5 @@
-// El principal objetivo de este desafío es fortalecer tus habilidades en lógica de programación. Aquí deberás desarrollar la lógica para resolver el problema.
 let amigos = [];
 
-//permita al usuario ingresar un nombre en el campo de texto y añadirlo a la lista de amigos creada anteriormente.
 function agregarAmigo() { 
     // Agrega el nombre del amigo al arreglo "amigos"
     let nombre = document.querySelector('#amigo').value;
@@ -11,16 +9,33 @@ function agregarAmigo() {
     else {
         amigos.push(nombre);
         console.log(amigos);
+        actualizarListaAmigos();
     }   
     document.querySelector('#amigo').value = "";
 }      
 
+
+
 function actualizarListaAmigos() {
-    let lista= document.getElementById("lista-amigos");
+    let lista= document.getElementById("listaAmigos");
     lista.innerHTML = "";
     for (let i = 0; i < amigos.length; i++) {
         let li = document.createElement("li");//crea un elemento li
         li.textContent = amigos[i];//le asigna el texto del amigo   
         lista.appendChild(li); //agrega el elemento li a la lista ul
+
     }
+}
+
+function sortearAmigo(){
+    let resultado = document.getElementById("resultado");
+    if (amigos.length > 1){
+        let indice = Math.floor(Math.random() * amigos.length);
+        //amigos.splice(indice, 1); // Elimina el amigo sorteado del arreglo
+        //actualizarListaAmigos(); // Actualiza la lista de amigos en la interfaz
+        resultado.innerHTML = `<li>El amigo seleccionado es: ${amigos[indice]}</li>`;
+    } else if (amigos.length == 1) {
+        alert("Por favor, agrega al menos dos amigos.");
+    } else
+        alert("No hay amigos para sortear. Por favor, agrega al menos dos amigos.");
 }
