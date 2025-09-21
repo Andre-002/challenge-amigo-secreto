@@ -9,3 +9,5 @@ Hay dos validaciones que realiza la app:
 
 1. El campo de texto no puede estar vacío al añadir un nombre.
 2. Minimo deben  haber dos amigos para realizar el sorteo.
+
+   Aplicación: https://andre-002.github.io/challenge-amigo-secreto/
